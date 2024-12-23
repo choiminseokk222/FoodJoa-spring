@@ -6,7 +6,7 @@
 
 * **프로젝트 명**
   - 세상의 모든 레시피 FoodJoa
-  - JSP MVC 기반으로 작성된 프로젝트를 Spring, MyBatis 기반으로 전반적인 리펙토링
+  - JSP MVC 기반으로 작성된 프로젝트를 Spring, MyBatis 기반으로 전반적인 리팩토링
     
 * **기간**
   - 2024.11.04 ~ 2024.12.09
@@ -150,13 +150,14 @@
 ---
 
 * 그 외 편의를 위한 코드
-  - [DBConnector.java](https://github.com/euneick/FoodJoa/blob/main/src/Common/DBConnector.java)
-    > DB 연결 시 과도하게 반복되는 코드를 모아놓은 클래스
-  - [FileIOController.java](https://github.com/euneick/FoodJoa/blob/main/src/Common/FileIOController.java)
+  - [FileIOController.java](https://github.com/euneick/FoodJoa-spring/blob/main/src/main/java/Common/FileIOController.java)
     > 사용자가 등록 및 삭제 한 파일을 다루기 위한 클래스  
     > 사용자가 파일 업로드 시 발생하는 임계 구역의 문제를 해결하기 위해 synchronized 된 메소드를 구현  
     > 파일 이동, 파일 및 경로 삭제 구현
-  - [StringParser.java](https://github.com/euneick/FoodJoa/blob/main/src/Common/StringParser.java)
+  - [StringParser.java](https://github.com/euneick/FoodJoa-spring/blob/main/src/main/java/Common/StringParser.java)
     > 사용자가 입력한 파일들의 이름 및 문자열을 재가공 하기 위한 클래스  
     > 여러개의 문자열을 [문자열의크기][문자열의내용] 순서로 하나로 합치는 메소드 구현  
-    > XSS 공격을 대비하여 특수문자들을 html escape 코드로 변환하는 메소드 구현
+    > XSS 공격을 대비하여 특수문자들을 html escape 코드로 변환하는 메소드 구현  
+  - [SNSLoginAPI.java](https://github.com/euneick/FoodJoa-spring/blob/main/src/main/java/Common/SNSLoginAPI.java)
+    > 네이버, 카카오 로그인 시 필요한 API 코드들을 모아놓은 클래스  
+    > Controller, Service 클래스의 코드를 간소화 하기 위해 작성
