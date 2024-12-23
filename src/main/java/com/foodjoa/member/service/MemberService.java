@@ -1,18 +1,12 @@
 package com.foodjoa.member.service;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -283,9 +277,7 @@ public class MemberService {
 	    
 	    memberDAO.updateMemberPoint(userId, usedPoints, pointsToAdd);
 	    
-	    // 메일 보내기 부분
-	    ExecutorService executor = Executors.newFixedThreadPool(5);
-	    
+	    // 메일 보내기 부분	    
 	    List<Integer> params = new ArrayList<Integer>();
 	    for (int i = 0; i < mealkitNosInt.length; i++) {
 	    	params.add(mealkitNosInt[i]);
@@ -294,14 +286,10 @@ public class MemberService {
 	    List<MealkitVO> mealkitMemberInfos = mealkitDAO.selectMealkitMemberInfo(params);
 	    
 	    for (MealkitVO info : mealkitMemberInfos) {
-	    	executor.submit(() -> {		    	
-		    	String subject = info.getTitle() + " 밀키트 주문이 들어왔습니다.";
-		    	
-		    	MailController.sendMail(info.getMemberVO().getEmail(), subject, subject);	    		
-	    	});
+	    	String subject = info.getTitle() + " 밀키트 주문이 들어왔습니다.";
+	    	
+	    	MailController.sendMail(info.getMemberVO().getEmail(), subject, subject);	
 	    }
-	    
-	    executor.shutdown();
 	    // 메일 보내기 부분 끝
 	    
 	    // 장바구니에서 항목 삭제

@@ -1,6 +1,8 @@
 package Common;
 
 import java.util.Properties;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import javax.mail.internet.MimeMessage;
 
@@ -11,29 +13,34 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 
 public class MailController {
 	
+	private static final int THREAD_POOL_SIZE = 5;
+	private static ExecutorService executor = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
+	
 	private static JavaMailSenderImpl mailSender;
 	
 	@Async
 	public static void sendMail(String to, String subject, String body) {
 		
-		if (mailSender == null) setMailSender();
-		
-		MimeMessage message = mailSender.createMimeMessage();
-		
-		try {
-			MimeMessageHelper messageHelper = new MimeMessageHelper(message, true, "UTF-8");
+		executor.submit(() -> {
+			if (mailSender == null) setMailSender();
 			
-			messageHelper.setFrom("study.euneick@gmail.com","세상 모든 레시피 Food Joa");
+			MimeMessage message = mailSender.createMimeMessage();
 			
-			messageHelper.setSubject(subject);			
-			messageHelper.setTo(to); 			
-			messageHelper.setText(body);
-			
-			mailSender.send(message);
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-		}
+			try {
+				MimeMessageHelper messageHelper = new MimeMessageHelper(message, true, "UTF-8");
+				
+				messageHelper.setFrom("study.euneick@gmail.com","세상 모든 레시피 Food Joa");
+				
+				messageHelper.setSubject(subject);			
+				messageHelper.setTo(to); 			
+				messageHelper.setText(body);
+				
+				mailSender.send(message);
+			}
+			catch (Exception e) {
+				e.printStackTrace();
+			}
+		});
 	}
 	
 	private static void setMailSender() {
