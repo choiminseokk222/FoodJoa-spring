@@ -23,7 +23,7 @@
 }
 
 .profile-section {
-    display: flex;uop
+    display: flex;
     align-items: center;
     gap: 20px;
     padding-bottom: 30px;
@@ -176,7 +176,7 @@ span {
     transition: opacity 0.3s ease;
 }
 
-#calendarFormContainer h1 {
+#calendarFormContainer h2{
     font-size: 24px;
     margin-bottom: 20px;
     color: #BF917E;
@@ -223,7 +223,6 @@ span {
 
 /* 일정 목록 스타일 */
 #calendarListContainer {
-    margin-top: 30px;
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
@@ -231,7 +230,7 @@ span {
 }
 
 #calendarListContainer h2 {
-    font-size: 22px;
+    font-size: 24px;
     color: #BF917E;
     margin-bottom: 15px;
     text-align: center;
@@ -277,25 +276,6 @@ span {
     text-align: center;
     font-size: 16px;
     color: #616161;
-}
-
-/* 반응형 디자인 */
-@media (max-width: 768px) {
-    #calendarFormContainer {
-        padding: 15px;
-    }
-
-    #calendarForm h1 {
-        font-size: 20px;
-    }
-
-    #calendarListContainer h2 {
-        font-size: 20px;
-    }
-
-    #calendarListContainer table {
-        font-size: 14px;
-    }
 }
 
 a.impormation {

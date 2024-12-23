@@ -52,7 +52,7 @@ public class MemberDAO {
 	
 	
 	public int deleteMemberById(String readonlyId) {
-		
+	
 		int count = sqlSession.delete("mapper.member.deleteMemberById", readonlyId);
 		return count;
 		
@@ -182,16 +182,19 @@ public class MemberDAO {
 	    return sqlSession.update("mapper.mealkitOrder.updateOrderStatus", params);
 	}
 	
-    public int insertCalendar(CalendarVO calendar) {
-	        return sqlSession.insert("mapper.calendar.insertCalendar", calendar);
+	public void insertCalendar(CalendarVO calendar) {
+	    sqlSession.insert("mapper.calendar.insertCalendar", calendar);
 	}
 
 	public List<CalendarVO> selectCalendars(String userId) {
-	        return sqlSession.selectList("mapper.calendar.selectCalendars", userId);
+	    return sqlSession.selectList("mapper.calendar.selectCalendars", userId);
 	}
 	    
-	public int deleteCalendarByUserId(CalendarVO calendar) {
-	        return sqlSession.delete("mapper.calendar.deleteCalendarByUserId", calendar);
+	public int deleteCalendarByUserId(String userId, int no) {
+		   Map<String, Object> params = new HashMap<>();
+		    params.put("userId", userId);
+		    params.put("no", no);
+	    return sqlSession.delete("mapper.calendar.deleteCalendarByUserId", params);
 	}
 
 	public MemberVO findById(String userId) {

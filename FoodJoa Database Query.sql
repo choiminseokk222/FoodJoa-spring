@@ -9,6 +9,7 @@ CREATE TABLE member(
     name 		varchar(20) not null,
     nickname 	varchar(10) not null,
     phone 		varchar(15) not null,
+    email		varchar(50) not null,
     zipcode 	varchar(50) not null,
     address1 	varchar(50) not null,
     address2 	varchar(50) not null,
@@ -242,7 +243,6 @@ CREATE TABLE together_join(
 CREATE TABLE calendar (
     no INT AUTO_INCREMENT PRIMARY KEY, -- 고유번호
     id VARCHAR(50) NOT NULL,           -- 사용자 ID
-    cn VARCHAR(50),                    -- 기타 데이터
     summary VARCHAR(255) NOT NULL,     -- 제목
     description TEXT NOT NULL,         -- 설명
     location VARCHAR(255),             -- 장소

@@ -128,7 +128,7 @@
           
               <div class="purchase-price">
                     <h3>결제 금액</h3>
-                    <span> 
+                    <span style="font-size:14px"> 
                         <fmt:formatNumber value="${purchasePrice}" type="currency" currencySymbol="₩" groupingUsed="true" maxFractionDigits="0" />
                     </span>
                 </div>
@@ -136,7 +136,7 @@
             <div class="purchase-area">
 	                <!-- 최종 결제 금액 표시 -->
 	            <h2>최종 결제 금액</h2>
-	            <span id="finalAmount">
+	            <span id="finalAmount" style="font-size:18px">
 	                <fmt:formatNumber value="${purchasePrice}" type="currency" currencySymbol="₩" groupingUsed="true" maxFractionDigits="0" />
 	            </span>
                 <div class="purchase-button-area">

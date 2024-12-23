@@ -76,7 +76,7 @@
 
 	<update id="updateOrderStatus" parameterType="map">
 		UPDATE 
-    	 	 mealkit_order 
+    		mealkit_order 
 		SET delivered = #{delivered}, refund = #{refund} 
 		WHERE no = #{orderNo}
 	</update>

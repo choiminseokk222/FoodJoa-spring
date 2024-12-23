@@ -8,7 +8,6 @@
     <resultMap type="calendarVO" id="calendar">
         <id property="no" column="no"/>
         <result property="id" column="id"/>
-        <result property="cn" column="cn"/>
         <result property="summary" column="summary"/>
         <result property="description" column="description"/>
         <result property="location" column="location"/>
@@ -17,9 +16,9 @@
     </resultMap>
 
     <insert id="insertCalendar" parameterType="calendarVO">
-        INSERT INTO calendar (id, cn, summary, description, location, start_time, end_time)
-        VALUES (#{id}, #{cn}, #{summary}, #{description}, #{location}, #{startTime}, #{endTime})
-    </insert>
+    INSERT INTO calendar (id, no, summary, description, location, start_time, end_time)
+    VALUES (#{id}, #{no}, #{summary}, #{description}, #{location}, #{startTime}, #{endTime})
+	</insert>
 
     <select id="selectCalendars" resultMap="calendar">
         SELECT * 
@@ -28,8 +27,9 @@
         ORDER BY start_time ASC
     </select>
     
-     <delete id="deleteCalendarByUserId" parameterType="calendarVO">
-	    DELETE FROM calendar 
-	    WHERE id= #{id}
+    <delete id="deleteCalendarByUserId" parameterType="Map">
+	DELETE FROM calendar 
+	WHERE id = #{userId} 
+	AND no = #{no} 
 	</delete>
 </mapper>

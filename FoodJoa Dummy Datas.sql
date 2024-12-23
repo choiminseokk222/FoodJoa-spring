@@ -1,24 +1,24 @@
 
--- member
+-- member 
 insert into member
-values('admin', '관리자', '고나리자', '01012345678', '47296', '부산 부산진구 신천대로50번길 79', ' 5층, 6층(부전동)', 'profile.png', 0, NOW() - INTERVAL FLOOR(RAND() * 60) DAY),
-	('review1', '김리뷰', '리뷰어1', '01012345678', '47296', ' 부산 부산진구 신천대로50번길 79', ' 5층, 6층(부전동)', 'profile.png', 0, NOW() - INTERVAL FLOOR(RAND() * 60) DAY),
-    ('review2', '이리뷰', '리뷰어2', '01012345678', '47296', ' 부산 부산진구 신천대로50번길 79', ' 5층, 6층(부전동)', 'profile.png', 0, NOW() - INTERVAL FLOOR(RAND() * 60) DAY),
-    ('review3', '박리뷰', '리뷰어3', '01012345678', '47296', ' 부산 부산진구 신천대로50번길 79', ' 5층, 6층(부전동)', 'profile.png', 0, NOW() - INTERVAL FLOOR(RAND() * 60) DAY),
-    ('review4', '최리뷰', '리뷰어4', '01012345678', '47296', ' 부산 부산진구 신천대로50번길 79', ' 5층, 6층(부전동)', 'profile.png', 0, NOW() - INTERVAL FLOOR(RAND() * 60) DAY),
+values('admin', '관리자', '고나리자', '01012345678', 'foodjoa@test.com','47296', '부산 부산진구 신천대로50번길 79', ' 5층, 6층(부전동)', 'profile.png', 0, NOW() - INTERVAL FLOOR(RAND() * 60) DAY),
+	('review1', '김리뷰', '리뷰어1', '01012345678', 'foodjoa@test.com','47296', ' 부산 부산진구 신천대로50번길 79', ' 5층, 6층(부전동)', 'profile.png', 0, NOW() - INTERVAL FLOOR(RAND() * 60) DAY),
+    ('review2', '이리뷰', '리뷰어2', '01012345678', 'foodjoa@test.com','47296', ' 부산 부산진구 신천대로50번길 79', ' 5층, 6층(부전동)', 'profile.png', 0, NOW() - INTERVAL FLOOR(RAND() * 60) DAY),
+    ('review3', '박리뷰', '리뷰어3', '01012345678', 'foodjoa@test.com','47296', ' 부산 부산진구 신천대로50번길 79', ' 5층, 6층(부전동)', 'profile.png', 0, NOW() - INTERVAL FLOOR(RAND() * 60) DAY),
+    ('review4', '최리뷰', '리뷰어4', '01012345678', 'foodjoa@test.com','47296', ' 부산 부산진구 신천대로50번길 79', ' 5층, 6층(부전동)', 'profile.png', 0, NOW() - INTERVAL FLOOR(RAND() * 60) DAY),
     
-    ('geonyongId', '이건용', '은익', '01012345678', '47296', ' 부산 부산진구 신천대로50번길 79', ' 5층, 6층(부전동)', 'profile.png', 0, NOW() - INTERVAL FLOOR(RAND() * 60) DAY),
-    ('hanaId', '이하나', '나리', '01012345678', '47296', ' 부산 부산진구 신천대로50번길 79', ' 5층, 6층(부전동)', 'profile.png', 0, NOW() - INTERVAL FLOOR(RAND() * 60) DAY),
-    ('aronId', '서아론', '아론', '01012345678', '47296', ' 부산 부산진구 신천대로50번길 79', ' 5층, 6층(부전동)', 'profile.png', 0, NOW() - INTERVAL FLOOR(RAND() * 60) DAY),
-    ('hyewonId', '이혜원', '혜원', '01012345678', '47296', ' 부산 부산진구 신천대로50번길 79', ' 5층, 6층(부전동)', 'profile.png', 0, NOW() - INTERVAL FLOOR(RAND() * 60) DAY),
-    ('minseokId', '최민석', '민석', '01012345678', '47296', ' 부산 부산진구 신천대로50번길 79', ' 5층, 6층(부전동)', 'profile.png', 0, NOW() - INTERVAL FLOOR(RAND() * 60) DAY),
+    ('geonyongId', '이건용', '은익', '01012345678', 'foodjoa@test.com','47296', ' 부산 부산진구 신천대로50번길 79', ' 5층, 6층(부전동)', 'profile.png', 0, NOW() - INTERVAL FLOOR(RAND() * 60) DAY),
+    ('hanaId', '이하나', '나리', '01012345678', 'foodjoa@test.com','47296', ' 부산 부산진구 신천대로50번길 79', ' 5층, 6층(부전동)', 'profile.png', 0, NOW() - INTERVAL FLOOR(RAND() * 60) DAY),
+    ('aronId', '서아론', '아론', '01012345678', 'foodjoa@test.com','47296', ' 부산 부산진구 신천대로50번길 79', ' 5층, 6층(부전동)', 'profile.png', 0, NOW() - INTERVAL FLOOR(RAND() * 60) DAY),
+    ('hyewonId', '이혜원', '혜원', '01012345678', 'foodjoa@test.com','47296', ' 부산 부산진구 신천대로50번길 79', ' 5층, 6층(부전동)', 'profile.png', 0, NOW() - INTERVAL FLOOR(RAND() * 60) DAY),
+    ('minseokId', '최민석', '민석', '01012345678', 'foodjoa@test.com','47296', ' 부산 부산진구 신천대로50번길 79', ' 5층, 6층(부전동)', 'profile.png', 0, NOW() - INTERVAL FLOOR(RAND() * 60) DAY),
     
-	('tQi32Qj0iONPLRZ16-5sX4-Gq_p8Jg_T33r-HdtLEFE', '네이버테스트', '네이버테스트', '01012345678', '47296', ' 부산 부산진구 신천대로50번길 79', ' 5층, 6층(부전동)', 'profile.png', 0, NOW() - INTERVAL FLOOR(RAND() * 60) DAY),
-    ('3837872024', '카카오테스트', '카카오테스트', '01012345678', '47296', ' 부산 부산진구 신천대로50번길 79', ' 5층, 6층(부전동)', 'profile.png', 0, NOW() - INTERVAL FLOOR(RAND() * 60) DAY),
-    ('E5WfZ9Dw6uy3PzDsAkaKOEdHtykh5sgibCaIt7BqYqM', '고나리자', '공지고나리자', '01012345678', '47296', ' 부산 부산진구 신천대로50번길 79', ' 5층, 6층(부전동)', 'profile.png', 0, NOW() - INTERVAL FLOOR(RAND() * 60) DAY),
-    ('nokzVx9aXFXFaCu-4sOTujR0FkNtw-zrSsY1kwwgNdM', '아론', '아론', '01012345678', '47296', ' 부산 부산진구 신천대로50번길 79', ' 5층, 6층(부전동)', 'profile.png', 0, NOW() - INTERVAL FLOOR(RAND() * 60) DAY),
-    ('oTcuaqH712AhGERfeDDh7sKhFyWoPrKcNhIujhF73vk', '혜원', '혜원', '01012345678', '47296', ' 부산 부산진구 신천대로50번길 79', ' 5층, 6층(부전동)', 'profile.png', 0, NOW() - INTERVAL FLOOR(RAND() * 60) DAY),
-    ('WR1ZpRIM2ktSXjEzf0nI5NMU9JU_ASY6UXjh6ROLA4o', '민석', '민석', '01012345678', '47296', ' 부산 부산진구 신천대로50번길 79', ' 5층, 6층(부전동)', 'profile.png', 0, NOW() - INTERVAL FLOOR(RAND() * 60) DAY);
+	('tQi32Qj0iONPLRZ16-5sX4-Gq_p8Jg_T33r-HdtLEFE', '네이버테스트', '네이버테스트', '01012345678', 'foodjoa@test.com','47296', ' 부산 부산진구 신천대로50번길 79', ' 5층, 6층(부전동)', 'profile.png', 0, NOW() - INTERVAL FLOOR(RAND() * 60) DAY),
+    ('3837872024', '카카오테스트', '카카오테스트', '01012345678', 'foodjoa@test.com','47296', ' 부산 부산진구 신천대로50번길 79', ' 5층, 6층(부전동)', 'profile.png', 0, NOW() - INTERVAL FLOOR(RAND() * 60) DAY),
+    ('E5WfZ9Dw6uy3PzDsAkaKOEdHtykh5sgibCaIt7BqYqM', '고나리자', '공지고나리자', '01012345678', 'foodjoa@test.com','47296', ' 부산 부산진구 신천대로50번길 79', ' 5층, 6층(부전동)', 'profile.png', 0, NOW() - INTERVAL FLOOR(RAND() * 60) DAY),
+    ('nokzVx9aXFXFaCu-4sOTujR0FkNtw-zrSsY1kwwgNdM', '아론', '아론', '01012345678', 'foodjoa@test.com','47296', ' 부산 부산진구 신천대로50번길 79', ' 5층, 6층(부전동)', 'profile.png', 0, NOW() - INTERVAL FLOOR(RAND() * 60) DAY),
+    ('oTcuaqH712AhGERfeDDh7sKhFyWoPrKcNhIujhF73vk', '혜원', '혜원', '01012345678', 'foodjoa@test.com','47296', ' 부산 부산진구 신천대로50번길 79', ' 5층, 6층(부전동)', 'profile.png', 0, NOW() - INTERVAL FLOOR(RAND() * 60) DAY),
+    ('WR1ZpRIM2ktSXjEzf0nI5NMU9JU_ASY6UXjh6ROLA4o', '민석', '민석', '01012345678', 'foodjoa@test.com','47296', ' 부산 부산진구 신천대로50번길 79', ' 5층, 6층(부전동)', 'profile.png', 0, NOW() - INTERVAL FLOOR(RAND() * 60) DAY);
     
     
 

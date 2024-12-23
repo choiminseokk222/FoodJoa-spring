@@ -59,8 +59,7 @@ public class MemberController {
     
     @Autowired
     private ServletContext servletContext;
-    
-
+ 
     //---------------------------------------
     
     // SNS 회원가입 페이지로 이동
@@ -270,7 +269,7 @@ public class MemberController {
             PrintWriter out = response.getWriter();
             out.print("<script>");
             out.print("alert('탈퇴 되셨습니다.');");
-            out.print("window.location.href='/Main/home';"); // 리다이렉트 전에 알림창 띄우고 이동
+            out.print("window.location.href='/FoodJoa/Main/home';"); // 리다이렉트 전에 알림창 띄우고 이동
             out.print("</script>");
             out.close();
             return null;
@@ -443,17 +442,11 @@ public class MemberController {
         model.addAttribute("member", member);
         model.addAttribute("deliveredCounts", deliveredCounts);
         model.addAttribute("sendedCounts", sendedCounts);
+        
+        List<CalendarVO> calendarList = memberService.getUserCalendars(userId);
 
-        if (calendar != null && calendar.getSummary() != null && !calendar.getSummary().trim().isEmpty()) {
-            calendar.setId(userId); 
-            memberService.addCalendar(calendar); 
-        }
-
-        List<CalendarVO> calendars = memberService.getUserCalendars(userId);
-        model.addAttribute("calendars", calendars);
-
-        memberService.deleteCalendarByUserId(calendar);
-
+        model.addAttribute("calendarList", calendarList);
+   
         return "/members/mypagemain";
     }
 
@@ -546,16 +539,23 @@ public class MemberController {
         out.close();  // 응답 스트림 닫기
     }
 
-    public String addCalendar(@ModelAttribute CalendarVO calendar, Model model) {
-        memberService.addCalendar(calendar); 
-        List<CalendarVO> calendars = memberService.getUserCalendars(calendar.getId()); 
-        model.addAttribute("calendars", calendars);
-        return "redirect:/Member/mypagemain"; 
+    @RequestMapping("addCalendar")
+    public String addCalendar(CalendarVO calendar, HttpSession session) {
+        String userId = (String) session.getAttribute("userId");
+
+        calendar.setId(userId);
+
+        memberService.addCalendar(calendar);
+
+        return "redirect:/Member/mypagemain";
     }
 
-    public String listUserCalendars(Model model, @RequestParam("userId") String userId) {
-        List<CalendarVO> calendars = memberService.getUserCalendars(userId);
-        model.addAttribute("calendars", calendars);
-        return "redirect:/Member/mypagemain"; 
+    @RequestMapping("deleteCalendar")
+    public String deleteCalendar(@RequestParam String Id, @RequestParam int no, HttpSession session) {
+        String userId = (String) session.getAttribute("userId");         
+  
+        memberService.deleteCalendarByUserId(userId, no);
+
+        return "redirect:/Member/mypagemain";
     }
     }

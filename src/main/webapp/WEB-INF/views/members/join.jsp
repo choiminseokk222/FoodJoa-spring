@@ -69,6 +69,7 @@
             const name = document.getElementById('name').value.trim();
             const nickname = document.getElementById('nickname').value.trim();
             const phone = document.getElementById('phone').value.trim();
+            const email = document.getElementById('email').value.trim();
             const address = document.getElementById('sample4_roadAddress').value.trim();
 
             if (name.length < 2 || name.length > 10) {
@@ -85,6 +86,12 @@
             if (!phoneRegex.test(phone)) {
                 alert('전화번호는 10~11자리 숫자로 입력해주세요.');
                 return;
+            }
+            
+            const emailRegex = /^[\w._%+-]+@[a-zA-Z\d.-]+\.(com|net)$/;
+            if (!emailRegex.test(email)) {
+                alert('유효한 이메일을 입력해주세요. (예: foodjoa@test.com)');
+                return false;
             }
 
             if (!address) {
@@ -155,6 +162,7 @@
 					<input type="text" id="name" name="name" class="form-control" placeholder="이름을 입력해주세요" required />
 					<input type="text" id="nickname" name="nickname" class="form-control" placeholder="닉네임을 입력해주세요" required />
 					<input type="text" id="phone" name="phone" class="form-control" placeholder="휴대폰번호 입력해주세요" required />
+					<input type="text" id="email" name="email" class="form-control" placeholder="이메일을 입력해주세요" required />
 					
 					<p id="addressInput"></p> 
 					<input type="text" id="sample4_postcode" name="zipcode" class="form-control" placeholder="우편번호">

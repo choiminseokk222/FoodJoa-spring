@@ -55,6 +55,7 @@ response.setContentType("text/html; charset=utf-8");
 		        const name = document.getElementById('name').value.trim();
 		        const nickname = document.getElementById('nickname').value.trim();
 		        const phone = document.getElementById('phone').value.trim();
+		        const email = document.getElementById('email').value.trim();
 		        const postcode = document.getElementById('zipcode').value.trim();
 		        const address = document.getElementById('address1').value.trim();
 		        const detailAddress = document.getElementById('address2').value.trim();
@@ -71,6 +72,11 @@ response.setContentType("text/html; charset=utf-8");
 		        if (!phoneRegex.test(phone)) {
 		            alert('전화번호는 10~11자리 숫자로 입력해주세요.');
 		            return;
+		        }
+		        const emailRegex = /^[\w._%+-]+@[a-zA-Z\d.-]+\.(com|net)$/;
+		        if (!emailRegex.test(email)) {
+		            alert('유효한 이메일을 입력해주세요. (예: foodjoa@test.com)');
+		            return false;
 		        }
 		        if (!zipcode) {
 		            alert('주소(우편번호)를 입력해주세요.');
@@ -105,6 +111,7 @@ response.setContentType("text/html; charset=utf-8");
 				formData.append('name', $("#name").val());
 				formData.append('nickname', $("#nickname").val());
 				formData.append('phone', $("#phone").val());
+				formData.append('email', $("#email").val());
 				formData.append('zipcode', $("#zipcode").val());
 				formData.append('address1', $("#address1").val());
 				formData.append('address2', $("#address2").val());
@@ -161,6 +168,10 @@ response.setContentType("text/html; charset=utf-8");
 			<div class="form-group">
 				<label for="phone">번호</label>
 				<input type="text" id="phone" name="phone" value="${vo.phone}" placeholder="-없이 입력해주세요" required>
+			</div>
+			<div class="form-group">
+				<label for="phone">이메일</label>
+				<input type="text" id="email" name="email" value="${vo.email}" placeholder="이메일 형식으로 입력해주세요" required>
 			</div>
 			<div class="form-group">
 				<input type="text" id="zipcode" name="zipcode" class="form-control" placeholder="우편번호" value="${vo.zipcode }">
