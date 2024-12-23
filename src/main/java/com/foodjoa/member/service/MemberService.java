@@ -9,6 +9,8 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -38,6 +40,7 @@ import com.foodjoa.mealkit.vo.MealkitWishListVO;
 
 
 import Common.FileIOController;
+import Common.MailController;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -92,6 +95,8 @@ public class MemberService {
                         + File.separator + userId;
                 
                 FileIOController.moveFile(tempPath, destinationPath, originalFileName);
+                
+                MailController.sendMail(memberVO.getEmail(), "푸드조아에 오신걸 환영합니다.", "푸드조아에 오신걸 환영합니다. 다양한 레시피를 만나보세요.");
                 
                 return result;  // 성공한 경우 result 반환
             }
@@ -277,7 +282,28 @@ public class MemberService {
 	    int pointsToAdd = (int) (finalAmount * 0.05);
 	    
 	    memberDAO.updateMemberPoint(userId, usedPoints, pointsToAdd);
-
+	    
+	    // 메일 보내기 부분
+	    ExecutorService executor = Executors.newFixedThreadPool(5);
+	    
+	    List<Integer> params = new ArrayList<Integer>();
+	    for (int i = 0; i < mealkitNosInt.length; i++) {
+	    	params.add(mealkitNosInt[i]);
+	    }
+	    
+	    List<MealkitVO> mealkitMemberInfos = mealkitDAO.selectMealkitMemberInfo(params);
+	    
+	    for (MealkitVO info : mealkitMemberInfos) {
+	    	executor.submit(() -> {		    	
+		    	String subject = info.getTitle() + " 밀키트 주문이 들어왔습니다.";
+		    	
+		    	MailController.sendMail(info.getMemberVO().getEmail(), subject, subject);	    		
+	    	});
+	    }
+	    
+	    executor.shutdown();
+	    // 메일 보내기 부분 끝
+	    
 	    // 장바구니에서 항목 삭제
 	    result = 1;
 	    if (isCart.equals("1")) {

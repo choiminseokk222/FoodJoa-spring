@@ -28,6 +28,7 @@
 			<result property="name" column="name"/>
 			<result property="nickname" column="nickname"/>
 			<result property="phone" column="phone"/>
+			<result property="email" column="email"/>
 			<result property="zipcode" column="zipcode"/>
 			<result property="address1" column="address1"/>
 			<result property="address2" column="address2"/>
@@ -171,9 +172,21 @@
     </update>
     
     <select id="getMealkitPrice" parameterType="int" resultType="int">
-    SELECT price
-    FROM mealkit
-    WHERE no = #{mealkitNo}
+	    SELECT price
+	    FROM mealkit
+	    WHERE no = #{mealkitNo}
+	</select>
+	
+	<select id="selectMealkitMemberInfo" parameterType="java.util.List" resultMap="mealkit">
+		SELECT 
+			m.email, k.title
+		FROM member m
+		JOIN mealkit k
+		ON m.id=k.id
+		WHERE k.no IN
+		<foreach collection="list" item="item" open="(" separator="," close=")">
+	        #{item}
+	    </foreach>
 	</select>
     
 </mapper>

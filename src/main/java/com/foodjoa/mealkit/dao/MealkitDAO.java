@@ -128,4 +128,7 @@ public class MealkitDAO {
 		return sqlSession.update("mapper.mealkit.updateMealkitViews", _no);
 	}
 
+	public List<MealkitVO> selectMealkitMemberInfo(List<Integer> params) {
+		return sqlSession.selectList("mapper.mealkit.selectMealkitMemberInfo", params);
+	}
 }
