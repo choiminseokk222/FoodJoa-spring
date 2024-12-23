@@ -161,3 +161,6 @@
   - [SNSLoginAPI.java](https://github.com/euneick/FoodJoa-spring/blob/main/src/main/java/Common/SNSLoginAPI.java)
     > 네이버, 카카오 로그인 시 필요한 API 코드들을 모아놓은 클래스  
     > Controller, Service 클래스의 코드를 간소화 하기 위해 작성
+  - [MailController.java](https://github.com/euneick/FoodJoa-spring/blob/main/src/main/java/Common/MailController.java)
+    > 사용자에게 메일을 보내는 로직을 작성한 클래스
+    > 멀티스레드를 활용하여 메일을 전송송
